@@ -1,17 +1,24 @@
 package model;
 
-public class CoinAcceptor {
+public class CoinAcceptor implements MoneyAcceptor {
     private int amount;
 
-    public CoinAcceptor(int amount) {
-        this.amount = amount;
+    public CoinAcceptor(int initialAmount) {
+        this.amount = initialAmount;
     }
 
-    public int getAmount() {
+    @Override
+    public void addMoney(int amount) {
+        this.amount += amount;
+    }
+
+    @Override
+    public int getBalance() {
         return amount;
     }
 
-    public void setAmount(int amount) {
-        this.amount = amount;
+    @Override
+    public void resetBalance() {
+        this.amount = 0;
     }
 }
